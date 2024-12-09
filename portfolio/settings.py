@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-portfolio-website-wfz8.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -124,5 +124,10 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Static files configuration
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
